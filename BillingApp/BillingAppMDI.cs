@@ -26,10 +26,9 @@ namespace BillingApp
             mainMenu.GetForm().BackColor = Color.Blue;
         }
 
+
         private void createCompanyMenuItem_Click(object sender, EventArgs e)
         {
-            //mainMenu.MenuItems.Add(new MenuItem("CreateComp", //Items.Add(CreateCompany);
-            //Application.Run(new CreateCompany());
             CreateCompany createCompany = new CreateCompany();
             createCompany.MdiParent = this;
             createCompany.StartPosition = FormStartPosition.CenterScreen;
@@ -41,5 +40,19 @@ namespace BillingApp
         {
             Application.Exit();
         }
+
+        private void salesorderClousuresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void itemMasterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ItemMaster itemMaster = new ItemMaster();
+            itemMaster.MdiParent = this;
+            itemMaster.StartPosition = FormStartPosition.CenterScreen;
+
+            itemMaster.Show();
+        }       
     }
 }

@@ -16,7 +16,8 @@ namespace BillingApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new BillingAppMDI());
+            //Application.Run(new BillingAppMDI());
+            Application.Run(new frmActivateLicence());
         }
     }
 }

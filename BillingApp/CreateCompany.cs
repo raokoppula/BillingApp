@@ -216,9 +216,7 @@ namespace BillingApp
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            this.Close();
-            //txtAddress1.Text = "";
-            //txtAddress2.Text = "";
+            this.Close();            
         }
 
         private void cmbCountry_SelectedIndexChanged(object sender, EventArgs e)

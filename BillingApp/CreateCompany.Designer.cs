@@ -31,6 +31,10 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dtpBooksBegining = new System.Windows.Forms.DateTimePicker();
+            this.label24 = new System.Windows.Forms.Label();
+            this.dtpFinancialYear = new System.Windows.Forms.DateTimePicker();
+            this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
@@ -71,10 +75,6 @@
             this.label15 = new System.Windows.Forms.Label();
             this.txtCompanyName = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.dtpFinancialYear = new System.Windows.Forms.DateTimePicker();
-            this.label23 = new System.Windows.Forms.Label();
-            this.dtpBooksBegining = new System.Windows.Forms.DateTimePicker();
-            this.label24 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -82,6 +82,7 @@
             // 
             // btnSave
             // 
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.Location = new System.Drawing.Point(359, 507);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
@@ -92,6 +93,7 @@
             // 
             // btnCancel
             // 
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Location = new System.Drawing.Point(450, 507);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
@@ -123,6 +125,44 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(566, 133);
             this.panel1.TabIndex = 32;
+            // 
+            // dtpBooksBegining
+            // 
+            this.dtpBooksBegining.Enabled = false;
+            this.dtpBooksBegining.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpBooksBegining.Location = new System.Drawing.Point(410, 88);
+            this.dtpBooksBegining.Name = "dtpBooksBegining";
+            this.dtpBooksBegining.Size = new System.Drawing.Size(127, 20);
+            this.dtpBooksBegining.TabIndex = 18;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(258, 96);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(131, 16);
+            this.label24.TabIndex = 53;
+            this.label24.Text = "Books beginng from ";
+            // 
+            // dtpFinancialYear
+            // 
+            this.dtpFinancialYear.Enabled = false;
+            this.dtpFinancialYear.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFinancialYear.Location = new System.Drawing.Point(141, 92);
+            this.dtpFinancialYear.Name = "dtpFinancialYear";
+            this.dtpFinancialYear.Size = new System.Drawing.Size(102, 20);
+            this.dtpFinancialYear.TabIndex = 17;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(7, 92);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(121, 16);
+            this.label23.TabIndex = 51;
+            this.label23.Text = "Financial year from";
             // 
             // label22
             // 
@@ -513,42 +553,6 @@
             this.label7.Size = new System.Drawing.Size(118, 16);
             this.label7.TabIndex = 16;
             this.label7.Text = "Company Name";
-            // 
-            // dtpFinancialYear
-            // 
-            this.dtpFinancialYear.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFinancialYear.Location = new System.Drawing.Point(141, 92);
-            this.dtpFinancialYear.Name = "dtpFinancialYear";
-            this.dtpFinancialYear.Size = new System.Drawing.Size(102, 20);
-            this.dtpFinancialYear.TabIndex = 17;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(7, 92);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(121, 16);
-            this.label23.TabIndex = 51;
-            this.label23.Text = "Financial year from";
-            // 
-            // dtpBooksBegining
-            // 
-            this.dtpBooksBegining.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpBooksBegining.Location = new System.Drawing.Point(410, 88);
-            this.dtpBooksBegining.Name = "dtpBooksBegining";
-            this.dtpBooksBegining.Size = new System.Drawing.Size(127, 20);
-            this.dtpBooksBegining.TabIndex = 18;
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(258, 96);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(131, 16);
-            this.label24.TabIndex = 53;
-            this.label24.Text = "Books beginng from ";
             // 
             // CreateCompany
             // 
