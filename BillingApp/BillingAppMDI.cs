@@ -53,6 +53,29 @@ namespace BillingApp
             itemMaster.StartPosition = FormStartPosition.CenterScreen;
 
             itemMaster.Show();
-        }       
+        }
+
+        private void salesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Sales frmSales = new Sales();
+            frmSales.MdiParent = this;
+            frmSales.StartPosition = FormStartPosition.CenterScreen;
+
+            frmSales.Show();
+        }
+
+        private void retailCustomerToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Customer frmRetailCustomer = new Customer();
+            frmRetailCustomer.MdiParent = this;
+            frmRetailCustomer.StartPosition = FormStartPosition.CenterScreen;
+
+            frmRetailCustomer.Show();
+        }
+
+        private void mISReportsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

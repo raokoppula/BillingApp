@@ -223,7 +223,7 @@
             // 
             // pbCompanyLogo
             // 
-            this.pbCompanyLogo.Image = global::BillingApp.Properties.Resources.compLogo;
+            //this.pbCompanyLogo.Image = global::BillingApp.Properties.Resources.compLogo;
             this.pbCompanyLogo.InitialImage = null;
             this.pbCompanyLogo.Location = new System.Drawing.Point(13, 13);
             this.pbCompanyLogo.Name = "pbCompanyLogo";
@@ -240,7 +240,7 @@
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frmActivateLicence";
+            this.Name = "ActivateLicence";
             this.Text = "Activate Licence";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

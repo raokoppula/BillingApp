@@ -399,11 +399,13 @@
             // 
             // cmbState
             // 
+            this.cmbState.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbState.FormattingEnabled = true;
             this.cmbState.Location = new System.Drawing.Point(122, 151);
             this.cmbState.Name = "cmbState";
             this.cmbState.Size = new System.Drawing.Size(131, 21);
             this.cmbState.TabIndex = 7;
+            this.cmbState.SelectedIndexChanged += new System.EventHandler(this.cmbState_SelectedIndexChanged);
             // 
             // label9
             // 
@@ -417,6 +419,7 @@
             // 
             // cmbCity
             // 
+            this.cmbCity.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCity.FormattingEnabled = true;
             this.cmbCity.Location = new System.Drawing.Point(122, 185);
             this.cmbCity.Name = "cmbCity";
@@ -435,13 +438,13 @@
             // 
             // cmbCountry
             // 
+            this.cmbCountry.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCountry.FormattingEnabled = true;
             this.cmbCountry.Location = new System.Drawing.Point(122, 124);
             this.cmbCountry.Name = "cmbCountry";
             this.cmbCountry.Size = new System.Drawing.Size(131, 21);
             this.cmbCountry.TabIndex = 6;
             this.cmbCountry.SelectedIndexChanged += new System.EventHandler(this.cmbCountry_SelectedIndexChanged);
-            this.cmbCountry.SelectedValueChanged += new System.EventHandler(this.cmbCountry_SelectedValueChanged);
             // 
             // label8
             // 
@@ -535,7 +538,6 @@
             this.label15.Size = new System.Drawing.Size(14, 16);
             this.label15.TabIndex = 18;
             this.label15.Text = "*";
-            this.label15.AutoSizeChanged += new System.EventHandler(this.label15_AutoSizeChanged);
             // 
             // txtCompanyName
             // 
