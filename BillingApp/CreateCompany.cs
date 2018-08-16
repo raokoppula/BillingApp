@@ -17,25 +17,13 @@ namespace BillingApp
 
             InitializeComponent();
             CenterToScreen();
-
-            //cmbCountry.SelectedIndex = -1;
-            //cmbState.SelectedIndex = -1;
-            //cmbCity.SelectedIndex = -1;
-
-            //cmbState.Enabled = false;
-            //cmbCity.Enabled = false;
+            
+            cmbState.Enabled = false;
+            cmbCity.Enabled = false;
 
             LoadCountriesSql();
-
-            //if (cmbCountry.SelectedIndex == 0)
-            //{
-            //    LoadStatesForCountrySql(cmbCountry.SelectedIndex);
-            //}
-            //LoadStatesForCountrySql();
-            //LoadCitiesFromStateSql();
             LoadDealerTypesSql();
 
-            
             dtpFinancialYear.Value = Convert.ToDateTime("4/1/"+ DateTime.Now.Year.ToString());
             dtpBooksBegining.Value = Convert.ToDateTime("4/1/" + DateTime.Now.Year.ToString());
         }
@@ -125,10 +113,10 @@ namespace BillingApp
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
 
                     da.Fill(dataTable);
-                    //DataRow row = dataTable.NewRow();
-                    //row[0] = 0;
-                    //row[1] = "Please select";
-                    //dataTable.Rows.InsertAt(row, 0);
+                    DataRow row = dataTable.NewRow();
+                    row[0] = 0;
+                    row[1] = "Please select";
+                    dataTable.Rows.InsertAt(row, 0);
                 }
 
                 cmbCity.DataSource = dataTable;
@@ -147,12 +135,19 @@ namespace BillingApp
                 con.Open();
 
                 DataTable dataTable = new DataTable();
+                dataTable.Columns.Add("DealerTypeID");
+                dataTable.Columns.Add("DealerTypeName");
 
                 string cmdstr = "select * from tblDealerType";
                 using (SqlCommand cmd = new SqlCommand(cmdstr, con))
                 {
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
                     da.Fill(dataTable);
+
+                    DataRow row = dataTable.NewRow();
+                    row[0] = 0;
+                    row[1] = "Please select";
+                    dataTable.Rows.InsertAt(row, 0);
                 }
 
                 cmbDealerType.DataSource = dataTable;
@@ -166,32 +161,42 @@ namespace BillingApp
         {
             try
             {
-                //int compid = 3;
-                //string con = ConfigurationManager.ConnectionStrings["conBillingApp"].ConnectionString;
-                //Database db = new Microsoft.Practices.EnterpriseLibrary.Data.Sql.SqlDatabase(con);
-                //DbCommand dbCommand = db.GetStoredProcCommand("spAddCompany");
-                //dbCommand.CommandType = CommandType.StoredProcedure;
-
-                //db.AddInParameter(dbCommand, "@companyID", DbType.Int32, compid + 5);
-                //db.AddInParameter(dbCommand, "@compnayName", DbType.String, txtCompanyName.Text);
-                //db.AddInParameter(dbCommand, "@address", DbType.String, txtAddress1.Text + " " +txtAddress2.Text +" "+ txtAddress3.Text);
-                //db.AddInParameter(dbCommand, "@pin", DbType.String, txtPIN.Text);
-                //db.AddInParameter(dbCommand, "@city", DbType.String, cmbCity.SelectedValue);
-                //db.AddInParameter(dbCommand, "@state", DbType.String, cmbState.SelectedValue);
-                //db.AddInParameter(dbCommand, "@country", DbType.String, cmbCountry.SelectedValue);
-                //db.AddInParameter(dbCommand, "@phone", DbType.String, txtPhone.Text);
-                //db.AddInParameter(dbCommand, "@mobile", DbType.String, txtMobile.Text);
-                //db.AddInParameter(dbCommand, "@email", DbType.String, txtEmail.Text);
-                //db.AddInParameter(dbCommand, "@website", DbType.String, txtWebsite.Text);
-                //db.AddInParameter(dbCommand, "@pan", DbType.String, txtPAN.Text);
-                //db.AddInParameter(dbCommand, "@dealerType", DbType.String, cmbDealerType.SelectedValue);
-                //db.AddInParameter(dbCommand, "@gstin", DbType.String, txtGSTIN.Text);
-                //db.AddInParameter(dbCommand, "@effectiveDate", DbType.DateTime, dtEffectiveDate.Value);
-                //db.AddInParameter(dbCommand, "@financialYearFromDate", DbType.DateTime, dtEffectiveDate.Value);
-                //db.AddInParameter(dbCommand, "@booksBeginingFromDate", DbType.DateTime, dtEffectiveDate.Value);
-
-                //int result = db.ExecuteNonQuery(dbCommand);
+                //int compid = 10;
                 int result = 0;
+
+                using (SqlConnection con = new SqlConnection(constr))
+                {
+                    con.ConnectionString = constr;
+                    con.Open();
+                    
+                    using (SqlCommand cmd = new SqlCommand())
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.CommandText = "spAddCompany";
+                        cmd.Connection = con;
+
+                        ///cmd.Parameters.Add("@companyID", SqlDbType.Int).Value = compid + 5;
+                        cmd.Parameters.Add("@compnayName", SqlDbType.Text).Value = txtCompanyName.Text;
+                        cmd.Parameters.Add("@address", SqlDbType.Text).Value = txtAddress1.Text + " " + txtAddress2.Text + " " + txtAddress3.Text;
+                        cmd.Parameters.Add("@pin", SqlDbType.Text).Value = txtPIN.Text;
+                        cmd.Parameters.Add("@city", SqlDbType.Int).Value = Convert.ToUInt32(cmbCity.SelectedValue);
+                        cmd.Parameters.Add("@state", SqlDbType.Int).Value = Convert.ToUInt32(cmbState.SelectedValue);
+                        cmd.Parameters.Add("@country", SqlDbType.Int).Value = Convert.ToUInt32(cmbCountry.SelectedValue);
+                        cmd.Parameters.Add("@phone", SqlDbType.Text).Value = txtPhone.Text;
+                        cmd.Parameters.Add("@mobile", SqlDbType.Text).Value = txtMobile.Text;
+                        cmd.Parameters.Add("@email", SqlDbType.Text).Value = txtEmail.Text;
+                        cmd.Parameters.Add("@website", SqlDbType.Text).Value = txtWebsite.Text;
+                        cmd.Parameters.Add("@pan", SqlDbType.Text).Value = txtPAN.Text;
+                        cmd.Parameters.Add("@dealerType", SqlDbType.Int).Value = Convert.ToUInt32(cmbDealerType.SelectedValue);
+                        cmd.Parameters.Add("@gstin", SqlDbType.Text).Value = txtGSTIN.Text;
+                        cmd.Parameters.Add("@effectiveDate", SqlDbType.DateTime).Value = dtEffectiveDate.Value;
+                        cmd.Parameters.Add("@financialYearFromDate", SqlDbType.DateTime).Value = dtpFinancialYear.Value;
+                        cmd.Parameters.Add("@booksBeginingFromDate", SqlDbType.DateTime).Value = dtpBooksBegining.Value;
+
+                         result = cmd.ExecuteNonQuery();
+                    }
+                }
+                 
                if(result == 1)
                     MessageBox.Show("Company record inserted");
 
@@ -211,30 +216,28 @@ namespace BillingApp
 
         private void cmbCountry_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //cmbState.Enabled = false;
-            //cmbCity.Enabled = false;
+            cmbState.Enabled = false;
+            cmbCity.Enabled = false;
 
             if (cmbCountry.SelectedIndex != -1)
             {
-                int countryIndex = Convert.ToInt32(cmbCountry.SelectedValue);
+                int countryIndex = cmbCountry.SelectedIndex;
 
                 LoadStatesForCountrySql(countryIndex);
+                cmbState.Enabled = true;
             }
         }
 
         private void cmbState_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //cmbCountry.DataSource = null;
-            //cmbState.DataSource = null;
+            if (cmbState.SelectedValue.ToString() != null)
+            {
+                int countryIndex = cmbCountry.SelectedIndex;
+                int stateIndex = cmbState.SelectedIndex;
 
-            //if (cmbState.SelectedValue.ToString() != null)
-            //{
-            //    int countryIndex = Convert.ToInt32(cmbCountry.SelectedValue);
-            //    int stateIndex = Convert.ToInt32(cmbState.SelectedValue);
-
-            //    LoadCitiesFromStateSql(countryIndex, stateIndex);
-            //    //cmbState.Enabled = true;
-            //}
+                LoadCitiesFromStateSql(countryIndex, stateIndex);
+                cmbCity.Enabled = true;
+            }
         }
     }
 }

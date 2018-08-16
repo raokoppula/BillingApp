@@ -228,6 +228,7 @@
             // 
             // cmbDealerType
             // 
+            this.cmbDealerType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbDealerType.FormattingEnabled = true;
             this.cmbDealerType.Location = new System.Drawing.Point(410, 26);
             this.cmbDealerType.Name = "cmbDealerType";
