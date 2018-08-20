@@ -3,6 +3,7 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace BillingApp
 {
@@ -239,5 +240,52 @@ namespace BillingApp
                 cmbCity.Enabled = true;
             }
         }
+
+        private void txtGSTIN_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Regex rPan = new Regex(@"\d{2}[A-Z]{5}\d{4}[A-Z]{1}\d[Z]{1}[A-Z\d]{1}");
+
+            if (txtGSTIN.Text.Length > 0)
+            {
+                if (!rPan.IsMatch(txtGSTIN.Text))
+                {
+                    errorProGST.SetError(txtGSTIN, "Invalid GSTIN Number");
+                    txtGSTIN.SelectAll();
+                    e.Cancel = true;
+                }
+                else
+                {
+                    errorProGST.Clear();
+                }
+            }
+            else
+            {
+                errorProGST.Clear();
+            }
+        }
+
+        private void txtPAN_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Regex rPan = new Regex(@"^([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}?$");
+
+            if (txtPAN.Text.Length > 0)
+            {
+                if (!rPan.IsMatch(txtPAN.Text))
+                {
+                    errorProPAN.SetError(txtPAN, "Invalid PAN Card Number");
+                    txtPAN.SelectAll();
+                    e.Cancel = true;
+                }
+                else
+                {
+                    errorProPAN.Clear();
+                }
+            }
+            else
+            {
+                errorProPAN.Clear();
+            }
+        }
     }
 }
+

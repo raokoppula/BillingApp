@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -75,9 +76,13 @@
             this.label15 = new System.Windows.Forms.Label();
             this.txtCompanyName = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.errorProPAN = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProGST = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProPAN)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProGST)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSave
@@ -251,6 +256,7 @@
             this.txtGSTIN.Name = "txtGSTIN";
             this.txtGSTIN.Size = new System.Drawing.Size(139, 20);
             this.txtGSTIN.TabIndex = 15;
+            this.txtGSTIN.Validating += new System.ComponentModel.CancelEventHandler(this.txtGSTIN_Validating);
             // 
             // txtPAN
             // 
@@ -258,6 +264,7 @@
             this.txtPAN.Name = "txtPAN";
             this.txtPAN.Size = new System.Drawing.Size(139, 20);
             this.txtPAN.TabIndex = 13;
+            this.txtPAN.Validating += new System.ComponentModel.CancelEventHandler(this.txtPAN_Validating);
             // 
             // label12
             // 
@@ -557,6 +564,14 @@
             this.label7.TabIndex = 16;
             this.label7.Text = "Company Name";
             // 
+            // errorProPAN
+            // 
+            this.errorProPAN.ContainerControl = this;
+            // 
+            // errorProGST
+            // 
+            this.errorProGST.ContainerControl = this;
+            // 
             // CreateCompany
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -578,6 +593,8 @@
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProPAN)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProGST)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -630,6 +647,8 @@
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.DateTimePicker dtpFinancialYear;
         private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.ErrorProvider errorProPAN;
+        private System.Windows.Forms.ErrorProvider errorProGST;
     }
 }
 
