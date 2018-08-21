@@ -77,5 +77,41 @@ namespace BillingApp
         {
 
         }
+
+        private void selectCompanyMenuItem_Click(object sender, EventArgs e)
+        {
+            SelectCompany selectCompany = new SelectCompany();
+            selectCompany.MdiParent = this;
+            selectCompany.StartPosition = FormStartPosition.CenterScreen;
+
+            selectCompany.Show();
+        }
+
+        private void openDayMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenDay openDay = new OpenDay();
+            openDay.MdiParent = this;
+            openDay.StartPosition = FormStartPosition.CenterScreen;
+
+            openDay.Show();
+        }
+
+        private void closeDayMenuItem_Click(object sender, EventArgs e)
+        {
+            CloseDay closeDay = new CloseDay();
+            closeDay.MdiParent = this;
+            closeDay.StartPosition = FormStartPosition.CenterScreen;
+
+            closeDay.Show();
+        }
+
+        private void reOpenDayMenuItem_Click(object sender, EventArgs e)
+        {
+            ReOpenDay reopenDay = new ReOpenDay();
+            reopenDay.MdiParent = this;
+            reopenDay.StartPosition = FormStartPosition.CenterScreen;
+
+            reopenDay.Show();
+        }
     }
 }
